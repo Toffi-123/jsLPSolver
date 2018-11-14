@@ -3,7 +3,8 @@ jsLPSolver
 [A linear programming solver for the rest of us!](https://youtu.be/LbfMmCf5-ds?t=51)
 
 
-##What Can I do with it?
+## What Can I do with it?
+
 You can solve problems that fit the following fact pattern like this one
 from [this](http://math.stackexchange.com/questions/59429/berlin-airlift-linear-optimization-problem) site.
 
@@ -76,8 +77,8 @@ Say you live in the real world and partial results aren't realistic, too messy, 
 > gross profit of $1,200. A dresser uses 20sf of wood, 10 hours of work to put
 > together, requires 50 square feet to store and has a gross profit of $1,600.
 >
-> How much of each do you product to maximize profit, given that partial furniture
-> isn't allowed in this dumb word problem?
+> How much of each do you produce to maximize profit, given that partial furniture
+> aren't allowed in this dumb world problem?
 
 ```javascript
 var solver = require("./src/solver"),
@@ -90,10 +91,10 @@ var solver = require("./src/solver"),
             "storage": {"max": 400}
         },
         "variables": {
-            "table": {"wood": 30,"labor": 5,"profit": 1200,"table": 1, "storage": 30},
-            "dresser": {"wood": 20,"labor": 10,"profit": 1600,"dresser": 1, "storage": 50}
+            "table": {"wood": 30, "labor": 5, "profit": 1200, "table": 1, "storage": 30},
+            "dresser": {"wood": 20, "labor": 10, "profit": 1600, "dresser": 1, "storage": 50}
         },
-        "ints": {"table": 1,"dresser": 1}
+        "ints": {"table": 1, "dresser": 1}
     }
     
 console.log(solver.Solve(model));
@@ -153,10 +154,10 @@ The tableau "style-guide" I used to parse LPs came from [LP_Solve](http://lpsolv
   fs.readFile("./your/model/file", "utf8", function(e,d){
       // Convert the File Data to a JSON Model
       model = solver.ReformatLP(d);
+      
+      // Solve the LP
+      console.log(solver.Solve(model));
   });
-
-  // Solve the LP
-  console.log(solver.Solve(model));
 ```
 
 * Get LP From Arrays *
@@ -196,10 +197,10 @@ You can also exports JSON models to an [LP_Solve](http://lpsolve.sourceforge.net
             "storage": {"max": 400}
         },
         "variables": {
-            "table": {"wood": 30,"labor": 5,"profit": 1200,"table": 1, "storage": 30},
-            "dresser": {"wood": 20,"labor": 10,"profit": 1600,"dresser": 1, "storage": 50}
+            "table": {"wood": 30, "labor": 5, "profit": 1200, "table": 1, "storage": 30},
+            "dresser": {"wood": 20, "labor": 10, "profit": 1600, "dresser": 1, "storage": 50}
         },
-        "ints": {"table": 1,"dresser": 1}
+        "ints": {"table": 1, "dresser": 1}
     };
     
     // convert the model to a string
